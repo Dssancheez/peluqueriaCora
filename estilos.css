@@ -32,14 +32,20 @@ nav {
     background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el menú */
     padding: 10px 0; /* Espaciado interno */
     border-radius: 5px; /* Bordes redondeados */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+
+    display: flex;
+    justify-content: space-around; /* Adjusts spacing between items */
 }
+
 nav a {
     color: #EFB810; /* Color del texto */
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 10px;
     font-weight: bold;
     padding: 10px 15px; /* Espaciado interno para los enlaces */
     transition: background-color 0.3s; /* Transición suave para el efecto hover */
+    
 }
 nav a:hover {
     background-color: rgba(239, 184, 16, 0.3); /* Color de fondo al pasar el ratón */
