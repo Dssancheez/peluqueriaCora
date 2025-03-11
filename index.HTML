@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORAL</title>
+    <link rel="stylesheet" href="estilos.css">
+
+      
+    
+</head>
+<body>
+    <header>
+        <img src="coral.PNG" alt="Logo Barbería" class="logo"> <!-- Cambia esta URL por la de tu logo -->
+        <nav>
+            <a href="reservas.html">reservas</a>
+            <a href="#sobre-nosotros">Sobre Nosotros</a>
+            <a href="#contacto">Contacto</a>
+            
+        </nav>
+    </header>
+    <div class="content">
+        <h2>Nuestros Servicios</h2>
+        <div class="services" id="servicios">
+            <div class="service">
+                <img src="corte.jpg" alt="Corte de Cabello"> <!-- Cambia esta URL por la de tu imagen -->
+                <h3>Corte de Cabello</h3>
+                <p>Un corte de cabello moderno y estilizado para lucir increíble.</p>
+            </div>
+            <div class="service">
+                <img src="afeitado.jpg" alt="Afeitado"> <!-- Cambia esta URL por la de tu imagen -->
+                <h3>Afeitado</h3>
+                <p>Un afeitado clásico para un acabado limpio y fresco.</p>
+            </div>
+            <div class="service">
+                <img src="peinado.jpg" alt="Peinado"> <!-- Cambia esta URL por la de tu imagen -->
+                <h3>Peinado</h3>
+                <p>Peinados personalizados para cualquier ocasión.</p>
+            </div>
+            <div class="service">
+                <img src="tinte.jpeg" alt="Masaje Capilar"> <!-- Cambia esta URL por la de tu imagen -->
+                <h3>tinte</h3>
+                <p>Relájate con un masaje capilar revitalizante.</p>
+            </div>
+        </div>
+        
+    </div>
+    <section class="reviews-section">
+        <h2>Reseñas de Clientes</h2>
+        <div id="reviews-container"></div>
+        <form id="review-form">
+            <input type="text" id="reviewer-name" placeholder="Tu nombre" required>
+            <div class="star-rating">
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1" class="star">★</label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2" class="star">★</label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3" class="star">★</label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4" class="star">★</label>
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5" class="star">★</label>
+            </div>
+            <textarea id="review-text" placeholder="Escribe tu reseña" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 Barbería Estilo. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+
+<script>
+   document.getElementById('review-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+
+    const name = document.getElementById('reviewer-name').value;
+    const reviewText = document.getElementById('review-text').value;
+    const rating = document.querySelector('input[name="rating"]:checked');
+
+    if (!rating) {
+        alert("Por favor, selecciona una calificación.");
+        return;
+    }
+
+    const ratingValue = rating.value;
+
+    // Crear un nuevo elemento para la reseña
+    const reviewElement = document.createElement('div');
+    reviewElement.classList.add('review');
+    reviewElement.innerHTML = `<h4>${name} - ${ratingValue} estrella${ratingValue > 1 ? 's' : ''}</h4><p>${reviewText}</p>`;
+
+    // Agregar la nueva reseña al contenedor
+    document.getElementById('reviews-container').appendChild(reviewElement);
+
+    // Limpiar el formulario
+    document.getElementById('review-form').reset();
+});
+</script>
